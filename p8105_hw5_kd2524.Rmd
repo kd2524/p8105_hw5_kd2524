@@ -38,20 +38,9 @@ replace_na = function(x) {
     if (is.numeric(x[i])) {
       mean_i = mean(x[!is.na(x)])
       if (!is.na(x[i])) {
-        output[i] = x[i]
-      } else {
-        output[i] = mean_i
-      }
-    } else if (is.character(x[i])) {
-      if (!is.na(x[i])) {
-        output[i] = x[i]
-      } else {
-        output[i] = "virginica"
-      }
-    }
-  }
-  output
-}
+        output[i] = x[i]} 
+      else {output[i] = mean_i}} else if (is.character(x[i])) {if (!is.na(x[i])) { output[i] = x[i]} else {output[i] = "virginica"}}}
+  output}
 iris_complete = map(iris_with_missing, replace_na) %>%
   as.data.frame()
 ```
@@ -119,8 +108,7 @@ sim_regression = function(n = 30, beta0 = 2, beta1){
     beta1_hat = ls_tidy$estimate[[2]],
     p_value = ls_tidy$p_value[[2]]
     p_value = ls_tidy$p_value[[2]],
-    alpha = 0.05
-  )
+    alpha = 0.05)
 }
 ```
 ```
